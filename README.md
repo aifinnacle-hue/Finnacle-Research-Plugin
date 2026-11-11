@@ -10,11 +10,11 @@ A buy-side equity research toolkit for Indian (BSE/NSE) listed companies, by Fin
 ### Sourcing
 | Skill | What it does |
 |---|---|
-| `equity-doc-sourcing-llama` | Finds and downloads annual reports, concall transcripts and investor presentations for a company and its peers, and converts them to Markdown with LlamaParse. |
+| `equity-doc-sourcing-llama` | Finds and downloads annual reports, concall transcripts and investor presentations for a company and its peers, and converts them to Markdown through the LlamaParse connector. |
 | `youtube-transcript-sourcing` | Finds management interviews, earnings-call and industry videos on chosen YouTube channels, transcribes them through HappyScribe and saves them as Markdown. |
 | `valuepickr-scraper` | Generates a script that downloads full ValuePickr forum threads as clean Markdown. |
-| `telegram-ic-report-sourcing` | Pulls initiating-coverage broker reports for a company from Telegram channels you are a member of, and converts them to Markdown. |
-| `ace-model-loader` | Loads ACE Equity model workbooks into your own Supabase database. |
+| `telegram-ic-report-sourcing` | Finds initiating-coverage broker reports for a company in your own Telegram Desktop channel exports, and converts them to Markdown through the LlamaParse connector. |
+| `ace-model-loader` | Loads ACE Equity model workbooks into your own Supabase database through the Supabase connector. |
 
 ### Business analysis
 | Skill | What it does |
@@ -33,38 +33,31 @@ A buy-side equity research toolkit for Indian (BSE/NSE) listed companies, by Fin
 | `relative-multiples` | Peer trading-multiples sheet (EV and equity multiples, medians, base-year snapshot). |
 | `exit-multiple-return` | Holding-period return at an exit multiple, with a multiple × growth sensitivity grid. |
 
-## Setup: your own keys
+## Setup: connectors, not keys
 
-This plugin ships with **no API keys, tokens or account details**. The skills that call paid or authenticated services read your own credentials from environment variables on your machine. Never paste a key into chat.
+This plugin ships with **no API keys, tokens or account details**, and no skill asks for one or reads one from your machine. Skills that use an outside service work through a Claude connector that you connect and sign in to yourself (Settings → Connectors), or through an export you make yourself.
 
-| Skill | Environment variables | Where to get them |
-|---|---|---|
-| `equity-doc-sourcing-llama` | `LLAMA_CLOUD_API_KEY` | https://cloud.llamaindex.ai |
-| `telegram-ic-report-sourcing` | `TELEGRAM_API_ID`, `TELEGRAM_API_HASH`, `LLAMA_CLOUD_API_KEY` | https://my.telegram.org (API development tools) and https://cloud.llamaindex.ai |
-| `ace-model-loader` | `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` | Your Supabase project → Project Settings → API |
+| Skill | What you need |
+|---|---|
+| `equity-doc-sourcing-llama` | The **LlamaParse** connector, signed in to your LlamaCloud account |
+| `telegram-ic-report-sourcing` | **Telegram Desktop**, to export the channels you belong to ("Export chat history"), plus the **LlamaParse** connector |
+| `ace-model-loader` | The **Supabase** connector, signed in to the Supabase account that owns your database (not in read-only mode) |
+| `youtube-transcript-sourcing` | The **HappyScribe** connector |
 
-Set them once in your terminal, for example on macOS/Linux:
+If a connector isn't connected, the skill stops and tells you which one to connect. Never paste a key into chat.
 
-```bash
-export LLAMA_CLOUD_API_KEY="llx-..."
-export TELEGRAM_API_ID="1234567"
-export TELEGRAM_API_HASH="..."
-```
-
-On Windows use `setx NAME "value"` and open a new terminal. Telegram login (phone number and OTP) happens in your own terminal the first time the script runs; Claude never handles it.
-
-LlamaParse is billed per page by LlamaIndex. Annual reports are routed to the higher-cost tier, so check your credit balance before large runs.
+LlamaParse is billed per page by LlamaIndex to your own account. Annual reports are routed to the higher-cost tier, and each skill confirms the document list with you before it parses anything.
 
 ## Third-party services and what they receive
 
-This plugin declares no connectors of its own and Finnacle Institute runs no server: nothing is sent to or kept by Finnacle. Some skills send data to the services below, always through **your own** account or key.
+Finnacle Institute runs no server: nothing is sent to or kept by Finnacle. Some skills send data to the services below, always through a connector signed in to **your own** account.
 
 | Service | Skills | What is sent |
 |---|---|---|
 | LlamaCloud (LlamaParse) | `equity-doc-sourcing-llama`, `telegram-ic-report-sourcing` | Public company documents (annual reports, concall transcripts, presentations, broker reports) uploaded for PDF-to-Markdown conversion |
 | HappyScribe | `youtube-transcript-sourcing` | Links to public YouTube videos, for transcription |
-| Telegram | `telegram-ic-report-sourcing` | Your Telegram login (entered in your own terminal) to read channels you already belong to |
-| Supabase | `ace-model-loader` | Company financial data from your ACE Equity models, written to your own Supabase project |
+| Telegram | `telegram-ic-report-sourcing` | Nothing. You export channels yourself in Telegram Desktop and give Claude the export |
+| Supabase | `ace-model-loader` | Company financial data from your ACE Equity models, written to your own Supabase project through the Supabase connector |
 
 Other skills only read public pages (BSE, NSE, Screener.in, ValuePickr, YouTube, company websites) and send no user data to them. No skill collects personal data.
 
@@ -74,7 +67,7 @@ Other skills only read public pages (BSE, NSE, Screener.in, ValuePickr, YouTube,
 - **HappyScribe** — `youtube-transcript-sourcing` needs the HappyScribe connector connected in Claude, using your own HappyScribe account.
 - **Screener.in** — `short-investment-thesis-v2` reads trend data from Screener.in pages.
 - **Existing model** — `short-dcf`, `relative-multiples`, `implied-multiple-v2` and `exit-multiple-return` work on a company model workbook you already have.
-- **Python** — the sourcing skills generate scripts that run on your own machine with Python 3 (`requests`, `pdfplumber`, `llama-cloud-services`, `telethon`, `openpyxl` as needed; each skill states its install line).
+- **Python** — `ace-model-loader` and `relative-multiples` run bundled Python scripts in Claude's workspace (`openpyxl`); `valuepickr-scraper` generates a script you run on your own machine. None of them reads credentials.
 - **Research use only** — outputs are analytical aids for research and education, not investment advice.
 
 ## Suggested workflow

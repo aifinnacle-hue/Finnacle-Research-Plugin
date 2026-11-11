@@ -36,7 +36,7 @@
   (b) any UPDATE that changes a stored fact value (`value_conflict`, critical, old/new in details).
   Alert workflow: status open → approved | rejected. Suppress inside a transaction with
   `set_config('app.suppress_alerts','on',true)` (bulk pre-approved loads only).
-- RLS: authenticated = read-only; writes require service role.
+- RLS: authenticated = read-only. Writes go through the Supabase connector (execute_sql), which runs as the project owner; no keys are used.
 
 ## Useful views
 `v_company_master`, `v_company_directory`, `v_pnl_annual`, `v_balance_sheet_annual`,
