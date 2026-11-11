@@ -1,0 +1,47 @@
+{
+  "title": "Diagnostics — Peer Relative (Trading) Multiples | FY2021–FY2026",
+  "subtitle": "Base: FY-end (31-Mar) share price. FY26 prices are estimates where the exact close was unconfirmable — blue cells are inputs; overwrite Share Price to refresh. Historicals from the subject's linked model.",
+  "years": [2021, 2022, 2023, 2024, 2025, 2026],
+  "base_year": 2026,
+  "kpi_multiples": [ {"name": "EV / Sample", "denom": "Sample"}, {"name": "EV / Patient", "denom": "Patient"} ],
+  "subject": "Thyrocare",
+  "subject_medians": {"EV / Revenue": 6.65, "EV / Gross Profit": 9.12, "EV / EBITDA": 17.63, "EV / EBIT": 23.80, "EV / CFO": 28.22, "EV / FCFF": 45.01, "EV / Sample": 1681.1, "EV / Patient": 2061.3, "P/E": 33.76, "P/B": 7.30},
+  "companies": [
+    {"name": "Dr LalPath Labs",
+     "data": {
+       "Revenue": [1632.6,2140.0,2058.6,2295.8,2554.8,2864.2],
+       "Gross Profit": [1235.3,1637.7,1611.4,1844.4,2073.4,2328.2],
+       "EBITDA": [487.6,613.3,531.6,700.7,811.0,883.8],
+       "EBIT": [410.4,505.2,381.4,557.1,669.1,722.0],
+       "CFO": [null,null,null,null,null,635.7],
+       "FCFF": [null,null,null,null,null,null],
+       "PAT": [296.5,350.3,241.1,384.6,514.2,506.7],
+       "Sample": [4.97,6.6,7.23,7.82,8.56,9.45],
+       "Patient": [2.03,2.73,2.69,2.76,2.88,3.03],
+       "Share Price": [1285.7,1318.3,914.05,1131.43,1239.4,1312.10],
+       "Shares Outstanding": [166689754,166689754,166735754,166955704,167183470,167555020],
+       "Enterprise Value": [21688.0,22429.6,15414.5,18920.6,20473.3,null],
+       "Debt": [null,null,null,null,null,199.0],
+       "Cash & Investments": [303.6,443.7,413.7,474.7,619.3,1526.2],
+       "Book Value of Equity": [1276.0,1543.5,1699.5,1885.4,2206.5,2508.2]
+     }},
+    {"name": "Thyrocare",
+     "note": "Thyrocare 2021–25 sit in the subject's own linked model (not attached); FY2026 sourced independently. Historical median shown in summary for reference.",
+     "data": {
+       "Revenue": [null,null,null,null,null,829.04],
+       "Gross Profit": [null,null,null,null,null,609.47],
+       "EBITDA": [null,null,null,null,null,262.04],
+       "EBIT": [null,null,null,null,null,203.0],
+       "CFO": [null,null,null,null,null,213.24],
+       "FCFF": [null,null,null,null,null,192.0],
+       "PAT": [null,null,null,null,null,162.85],
+       "Sample": [null,null,null,null,null,20.96],
+       "Patient": [null,null,null,null,null,1.92],
+       "Share Price": [null,null,null,null,null,349.55],
+       "Shares Outstanding": [null,null,null,null,null,159173000],
+       "Debt": [null,null,null,null,null,51.0],
+       "Cash & Investments": [null,null,null,null,null,367.0],
+       "Book Value of Equity": [null,null,null,null,null,586.02]
+     }}
+  ]
+}
