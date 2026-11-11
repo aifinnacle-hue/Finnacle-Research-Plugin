@@ -1,6 +1,6 @@
 ---
 name: implied-multiple-v2
-description: Build an implied valuation multiple (P/E or EV/EBITDA) using the EVA / franchise-value framework: Implied Multiple = Steady-State Multiple + Future-Value-Creation Multiple, over an explicit forecast into a distant terminal year. Use when the user asks for an "implied PE", "implied EV/EBITDA", "implied multiple", or a value-creation/EVA-based multiple. Includes an optional mid-forecast (e.g. 3-year exit) implied multiple.
+description: "Build an implied valuation multiple (P/E or EV/EBITDA) using the EVA / franchise-value framework: Implied Multiple = Steady-State Multiple + Future-Value-Creation Multiple, over an explicit forecast into a distant terminal year. Use when the user asks for an \"implied PE\", \"implied EV/EBITDA\", \"implied multiple\", or a value-creation/EVA-based multiple. Includes an optional mid-forecast (e.g. 3-year exit) implied multiple."
 license: "Proprietary. © 2026 Finnacle Institute. All rights reserved. See LICENSE."
 ---
 

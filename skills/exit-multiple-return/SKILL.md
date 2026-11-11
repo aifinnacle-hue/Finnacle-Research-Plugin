@@ -1,6 +1,6 @@
 ---
 name: exit-multiple-return
-description: Build an exit-multiple (exit P/E or EV/EBITDA) holding-period return analysis with a sensitivity table: entry vs exit valuation, future forecast metric, gain and CAGR at exit, and a multiple x growth sensitivity grid. Use when the user asks for an "exit PE analysis", "exit multiple sensitivity", "holding-period return", "3-year exit CAGR/IRR", or "what return if I exit at Nx".
+description: "Build an exit-multiple (exit P/E or EV/EBITDA) holding-period return analysis with a sensitivity table: entry vs exit valuation, future forecast metric, gain and CAGR at exit, and a multiple x growth sensitivity grid. Use when the user asks for an \"exit PE analysis\", \"exit multiple sensitivity\", \"holding-period return\", \"3-year exit CAGR/IRR\", or \"what return if I exit at Nx\"."
 license: "Proprietary. © 2026 Finnacle Institute. All rights reserved. See LICENSE."
 ---
 
