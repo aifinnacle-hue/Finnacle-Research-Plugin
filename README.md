@@ -55,6 +55,19 @@ On Windows use `setx NAME "value"` and open a new terminal. Telegram login (phon
 
 LlamaParse is billed per page by LlamaIndex. Annual reports are routed to the higher-cost tier, so check your credit balance before large runs.
 
+## Third-party services and what they receive
+
+This plugin declares no connectors of its own and Finnacle Institute runs no server: nothing is sent to or kept by Finnacle. Some skills send data to the services below, always through **your own** account or key.
+
+| Service | Skills | What is sent |
+|---|---|---|
+| LlamaCloud (LlamaParse) | `equity-doc-sourcing-llama`, `telegram-ic-report-sourcing` | Public company documents (annual reports, concall transcripts, presentations, broker reports) uploaded for PDF-to-Markdown conversion |
+| HappyScribe | `youtube-transcript-sourcing` | Links to public YouTube videos, for transcription |
+| Telegram | `telegram-ic-report-sourcing` | Your Telegram login (entered in your own terminal) to read channels you already belong to |
+| Supabase | `ace-model-loader` | Company financial data from your ACE Equity models, written to your own Supabase project |
+
+Other skills only read public pages (BSE, NSE, Screener.in, ValuePickr, YouTube, company websites) and send no user data to them. No skill collects personal data.
+
 ## Requirements and limits
 
 - **ACE Equity** — `ace-model-loader` needs ACE Equity model exports and a Supabase database with the schema described in `skills/ace-model-loader/reference/db_schema.md`.
