@@ -14,7 +14,7 @@ The plugin is built to work on public company information (annual reports, conca
 
 ## Keys and logins
 
-The plugin never asks for, reads or stores an API key, password, token or login. Skills that use an outside service work through a Claude connector that you connect and sign in to yourself (LlamaParse, Supabase, HappyScribe). For Telegram, you export the channels yourself in Telegram Desktop; Claude never signs in to Telegram.
+The plugin never asks for, reads or stores an API key, password, token or login. Skills that use an outside service work through a Claude connector that you connect and sign in to yourself (LlamaParse, HappyScribe). For Telegram, you export the channels yourself in Telegram Desktop; Claude never signs in to Telegram.
 
 ## Third-party services
 
@@ -25,7 +25,6 @@ Some skills send data to the services below, always through a connector signed i
 | LlamaCloud (LlamaParse) | `equity-doc-sourcing-llama`, `telegram-ic-report-sourcing` | Public company documents and broker reports, for PDF-to-Markdown conversion |
 | HappyScribe | `youtube-transcript-sourcing` | Links to public YouTube videos, for transcription |
 | Telegram | `telegram-ic-report-sourcing` | Nothing. You export channels yourself in Telegram Desktop and give Claude the export |
-| Supabase | `ace-model-loader` | Company financial data from your ACE Equity models, written to your own Supabase project through the Supabase connector |
 
 Other skills only read public web pages (BSE, NSE, Screener.in, ValuePickr, YouTube, company websites) and send no user data to them.
 
