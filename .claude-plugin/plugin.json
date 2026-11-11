@@ -13,5 +13,8 @@
     "investment thesis",
     "document sourcing"
   ],
-  "license": "LicenseRef-Finnacle-Proprietary"
+  "license": "LicenseRef-Finnacle-Proprietary",
+  "privacyPolicyUrl": "https://github.com/aifinnacle-hue/Finnacle-Research-Plugin/blob/main/PRIVACY.md",
+  "repository": "https://github.com/aifinnacle-hue/Finnacle-Research-Plugin",
+  "icon": "./.claude-plugin/icon.png"
 }
